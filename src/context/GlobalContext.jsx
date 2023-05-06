@@ -10,7 +10,7 @@ let initailState = {
       ]
 }
 
-export const  GlobalContext = createContext(initailState)
+export const  GlobalContext = createContext()
 
 // eslint-disable-next-line react/prop-types
 export const ContextProvider = function({children}){
@@ -26,11 +26,17 @@ export const ContextProvider = function({children}){
     const DelTransaction = (id) => {
         dispatch({
             type:"DEL_TRANSACTION",
-             id
+            id
+        })
+    }
+    const Addall=(alltrans)=>{
+        dispatch({
+            type:"ADDALL",
+            payload:alltrans
         })
     }
     return (
-         <GlobalContext.Provider value={{transaction:state.transaction,AddTransaction,DelTransaction }}>
+         <GlobalContext.Provider value={{transaction:state.transaction,AddTransaction,DelTransaction,Addall}}>
             {children}
         </GlobalContext.Provider>
     )
