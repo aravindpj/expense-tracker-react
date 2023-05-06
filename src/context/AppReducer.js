@@ -5,6 +5,11 @@ export default function(state,action){
                 ...state,
                 transaction:[action.payload,...state.transaction]
             }
+        case "DEL_TRANSACTION":
+            return {
+                ...state,
+                transaction:state.transaction.filter(data=>data.id !== action.id)
+            }
         default:
            return state
     }

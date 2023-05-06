@@ -3,7 +3,7 @@ import { GlobalContext } from "../context/GlobalContext";
 
 
 const TransactionList = () => {
-    const {transaction}= useContext(GlobalContext)
+    const {transaction,DelTransaction}= useContext(GlobalContext)
     
   return (
     <div>
@@ -13,7 +13,7 @@ const TransactionList = () => {
             // eslint-disable-next-line react/jsx-key
             transaction.map(data=>(<li className={data.amount > 0 ? "plus" : "minus"}>
             {data.text}<span>{data.amount}</span>
-            <button className="delete-btn">x</button>
+            <button onClick={()=>DelTransaction(data.id)} className="delete-btn">x</button>
           </li>))
         }
 

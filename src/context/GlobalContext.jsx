@@ -23,9 +23,14 @@ export const ContextProvider = function({children}){
             payload:transaction
         })
     }
-
+    const DelTransaction = (id) => {
+        dispatch({
+            type:"DEL_TRANSACTION",
+             id
+        })
+    }
     return (
-         <GlobalContext.Provider value={{transaction:state.transaction,AddTransaction}}>
+         <GlobalContext.Provider value={{transaction:state.transaction,AddTransaction,DelTransaction }}>
             {children}
         </GlobalContext.Provider>
     )
